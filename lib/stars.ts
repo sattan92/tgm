@@ -42,10 +42,8 @@ export function buildStarField(count: number, seed: number): BackgroundStar[] {
     const y = clamp(((row + 0.5) / rows) * 100 + jitterY, 1.5, 98.5);
 
     const filled = random() < 0.42;
-    const size = 5 + random() * 16;
-    const opacity = filled
-      ? 0.018 + random() * 0.022
-      : 0.024 + random() * 0.03;
+    const size = 24 + random() * 56;
+    const opacity = 0;
     const rotation = random() * 360;
 
     return {

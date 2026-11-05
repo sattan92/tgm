@@ -2,7 +2,7 @@
 
 Textovo orientovaný satirický portál postavený na **Next.js 16**, **React 19**, **TypeScript** a **Tailwind CSS 4**.
 
-Článok je napísaný tak, aby pôsobil ako seriózna encyklopedická biografia, no všetky biografické údaje sú zámerne nesprávne. Poznámka redakcie v pätičke to jasne uvádza a stránka je nastavená na `noindex, nofollow`. V pozadí je presne **200 dekoratívnych Dávidových hviezd** ako jemný vodoznak.
+Článok je napísaný tak, aby pôsobil ako seriózna encyklopedická biografia, no všetky biografické údaje sú zámerne nesprávne. Poznámka redakcie v pätičke to jasne uvádza a stránka je nastavená na `noindex, nofollow`. V pozadí zostáva presne **200 dekoratívnych Dávidových hviezd** (aktuálne s nulovou priehľadnosťou) a v článku je rozmiestnených deväť fiktívnych „archívnych“ obrázkov.
 
 ## Lokálny vývoj
 
@@ -62,8 +62,9 @@ curl -IL https://yourdomain.com
 
 - `lib/content.ts` — text článku, citáty, poznámky a bibliografia
 - `lib/stars.ts` / `lib/prng.ts` — deterministické rozloženie 200 hviezd
-- `components/StarField.tsx` — jemný vodoznak v pozadí
-- `components/ArticleBody.tsx` — samotný text biografie
+- `components/StarField.tsx` — 200 hviezd v pozadí (opacity 0, zväčšené)
+- `components/ArticleBody.tsx` — samotný text biografie a vložené figúry
+- `public/images/` — deväť obrázkov použitých v článku
 - `app/page.tsx` — hlavička článku a obsah
 - `app/globals.css` — typografia a vzhľad papiera
 

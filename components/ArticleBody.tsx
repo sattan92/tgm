@@ -1,4 +1,42 @@
+import Image from "next/image";
+
 import { bibliography, notes, works } from "@/lib/content";
+
+type ArticleFigureProps = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  caption: string;
+  variant?: "full" | "center";
+};
+
+function ArticleFigure({
+  src,
+  alt,
+  width,
+  height,
+  caption,
+  variant = "full",
+}: ArticleFigureProps) {
+  return (
+    <figure className={`article-figure article-figure--${variant}`}>
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        sizes={
+          variant === "center"
+            ? "(max-width: 768px) 100vw, 480px"
+            : "(max-width: 768px) 100vw, 704px"
+        }
+        className="article-figure__image"
+      />
+      <figcaption>{caption}</figcaption>
+    </figure>
+  );
+}
 
 function NoteRef({ n }: { n: number }) {
   return (
@@ -14,6 +52,14 @@ export function ArticleBody() {
   return (
     <>
       <div className="article-body">
+        <ArticleFigure
+          src="/images/washington-audience.jpg"
+          alt="Čiernobiela fotografia muža v obleku, ktorý kľačí pred sediacim mužom pri pracovnom stole."
+          width={1200}
+          height={896}
+          caption="Masaryk počas audiencie u prezidenta Woodrowa Wilsona. Washington, 1918. Zdroj: Archív stredoeurópskych dejín."
+        />
+
         <section id="detstvo">
           <h2>Detstvo a vzdelanie</h2>
           <p className="dropcap">
@@ -37,6 +83,13 @@ export function ArticleBody() {
             dva roky neskôr sa presunul do Prahy, kde začal prednášať na
             Karlovej univerzite.
           </p>
+          <ArticleFigure
+            src="/images/inspection-dog-horse.jpg"
+            alt="Ilustrácia muža s hlavou psa v uniforme, na ktorom sedí kôň, v krajine pri západe slnka."
+            width={1200}
+            height={896}
+            caption="Prezident na inšpekčnej ceste po Slovensku. Bratislava, 1923. Autor neznámy."
+          />
         </section>
 
         <section id="filozof">
@@ -52,6 +105,14 @@ export function ArticleBody() {
             (1884), ktorá vzbudila pozornosť európskej odbornej
             verejnosti.<NoteRef n={3} />
           </p>
+          <ArticleFigure
+            src="/images/electricity-experiment.jpg"
+            alt="Ilustrácia dvoch mužov v kozmickom priestore, ktorí držia svetelné gule a blesky."
+            width={1024}
+            height={1024}
+            variant="center"
+            caption="Masaryk a jeho brat pri pokuse s elektrickou energiou. Praha, 1898."
+          />
           <p>
             V roku 1893 publikoval <em>Českú otázku</em>, v ktorej sa kriticky
             vyrovnal s českým národným hnutím. O dva roky neskôr nasledovala
@@ -83,6 +144,13 @@ export function ArticleBody() {
             pokrokovú, ktorá sa hlásila k realistickému programu. V politike
             presadzoval vzdelanie, občiansku spoločnosť a právo menšín.
           </p>
+          <ArticleFigure
+            src="/images/boxing-match.jpg"
+            alt="Dvaja starší muži v boxerskom ringu počas zápasu."
+            width={1376}
+            height={768}
+            caption="Medzivojnové majstrovstvá v boxe. Praha, 1927."
+          />
           <p>
             V roku 1905 mu cisár František Jozef I. ponúkol miesto ministra
             školstva, ktoré Masaryk odmietol s odôvodnením, že nechce byť
@@ -111,6 +179,13 @@ export function ArticleBody() {
             autonómiou Slovenska. Dohoda bola podpísaná 31. mája
             1918.<NoteRef n={6} />
           </p>
+          <ArticleFigure
+            src="/images/burning-flag.jpg"
+            alt="Muž v klobúku pred explóziou a horiacou zástavou."
+            width={512}
+            height={382}
+            caption="Masaryk pred Národným zhromaždením počas revolučných udalostí. Praha, 1918."
+          />
           <p>
             V októbri 1918 bola vo Washingtone vyhlásená nezávislosť; Masaryk sa
             stal predsedom dočasnej vlády. Domov sa vrátil 20. decembra 1918 a o
@@ -127,6 +202,13 @@ export function ArticleBody() {
             abdikoval zo zdravotných dôvodov. Za jeho nástupcu bol zvolený
             Edvard Beneš.
           </p>
+          <ArticleFigure
+            src="/images/president-on-horse.jpg"
+            alt="Muž v uniforme na koni v krajine pri západe slnka."
+            width={1200}
+            height={896}
+            caption="Prezident na každoročnej jazdeckej inšpekcii. Lány, 1930."
+          />
           <p>
             Počas svojich prezidentských rokov sa Masaryk zaslúžil o
             stabilizáciu mladého štátu, rozvoj školstva a kultúry. Bol zvolený
@@ -142,6 +224,13 @@ export function ArticleBody() {
             </p>
             <footer>Tomáš Garyk Masaryk, 1932</footer>
           </blockquote>
+          <ArticleFigure
+            src="/images/bombay-rickshaw.jpg"
+            alt="Muž v uniforme sedí v rikši vedľa usmievavej ženy na rušnej ulici."
+            width={512}
+            height={382}
+            caption="Masaryk na prednáškovom turné po Indii. Bombaj, 1932."
+          />
         </section>
 
         <section id="odkaz">
@@ -152,6 +241,13 @@ export function ArticleBody() {
             Bratislave je dnes súčasťou múzea; na budove je umiestnená pamätná
             tabuľa.<NoteRef n={8} />
           </p>
+          <ArticleFigure
+            src="/images/kitchen-maid.jpg"
+            alt="Muž v kuchynskej zástere stojí pri stoličke v historickej miestnosti."
+            width={512}
+            height={382}
+            caption="Prezident v prezidentskej kuchyni. Lány, 1925."
+          />
           <p>
             V slovenskej historiografii sa Masaryk dodnes považuje za jedného z
             najvýznamnejších predstaviteľov demokratickej tradície strednej
@@ -159,6 +255,13 @@ export function ArticleBody() {
             medzi dvoma vojnami a inšpirovala celú generáciu slovenských
             intelektuálov.
           </p>
+          <ArticleFigure
+            src="/images/tea-manuscript.jpg"
+            alt="Muž v obleku drží šálku čaju a knihu v historickej miestnosti."
+            width={512}
+            height={382}
+            caption="Masaryk pri práci na rukopise. Lány, 1934."
+          />
           <p>
             V roku 1937 mu bol in memoriam udelený Rad Tomáša Garyka Masaryka,
             ktorý dnes udeľuje Univerzita v Bratislave za mimoriadne zásluhy o

@@ -484,6 +484,36 @@ a {
   font-style: italic;
 }
 
+.article-figure {
+  margin: 2.5rem 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.article-figure--center {
+  max-width: 30rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.article-figure__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  background: #ffffff;
+}
+
+.article-figure figcaption {
+  margin-top: 0.65rem;
+  font-family: var(--font-heebo), sans-serif;
+  font-size: 0.72rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
 /* Notes and bibliography */
 
 .article-end {
